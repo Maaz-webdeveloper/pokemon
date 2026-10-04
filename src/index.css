@@ -12,6 +12,7 @@ html {
 body {
   width: 100%;
   background-color: #eff3ff;
+  overflow-x: hidden;
 }
 
 h1,
@@ -44,10 +45,10 @@ span {
 }
 
 .container {
-  max-width: 152rem;
-  margin: auto;
-  padding: 0 1.6rem;
-  /* Side padding for mobile */
+  max-width: 140rem;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 2rem;
 }
 
 .grid-three-cols {
@@ -182,7 +183,6 @@ figure {
   display: flex;
   justify-content: center;
   align-items: center;
-
   margin: 1.6rem 0;
 
   & p {
@@ -226,17 +226,33 @@ figure {
 }
 
 /* ======================================= */
-/* Responsive Breakpoints (Only Grid Fix)  */
+/* Responsive Breakpoints                   */
 /* ======================================= */
 
-/* Laptops / Small Screens */
-@media (max-width: 1400px) {
+/* Standard Laptops (Up to 1440px) */
+@media (max-width: 1440px) {
   .cards {
-    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+
+  .pokemon-card {
+    width: 31rem;
   }
 }
 
-/* Tablets (Portrait) */
+/* Small Laptops & Medium Screens (Up to 1200px) */
+@media (max-width: 1200px) {
+  .cards {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.4rem;
+  }
+
+  .pokemon-card {
+    width: 34rem;
+  }
+}
+
+/* Tablets (Up to 992px) */
 @media (max-width: 992px) {
   .cards {
     grid-template-columns: repeat(2, 1fr);
@@ -248,15 +264,18 @@ figure {
   }
 }
 
-/* Mobile Screens */
+/* Mobile Screens (Up to 600px) */
 @media (max-width: 600px) {
   html {
     font-size: 56.25%;
-    /* Slightly reduce scale for smaller mobile view */
   }
 
   .cards {
     grid-template-columns: 1fr;
+  }
+
+  .pokemon-card {
+    width: 100%;
   }
 
   h1 {
